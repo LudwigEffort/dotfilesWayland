@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# Increment, decrement, or mute the volume and send a notification
+# of the current volume level.
+# This script was written by Eric Murphy with pamixer, I rewritten for pulseaudio-control
+
+send_notification() {
+	volume=$(pulseaudio-control output)
+	dunstify -a "changevolume" -u low -r 9993 -h int:value:"$volume" -i "/home/ludwig/.local/share/icons/fontawesome/volume-$1.svg" "Volume: ${volume}%" -t 2000
+}
+
+case $1 in
+up)
+	# Set the volume on (if it was muted)
+	pulseaudio-control unmute
+	pulseaudio-control up --volume-step --volume-max --autosync
+	send_notification "$1"
+	;;
+down)
+	pulseaudio-control unmute
+	pulseaudio-control down --volume-step --volume-max --autosync
+	send_notification "$1"
+	;;
+mute)
+	pulseaudio-control togmute
+	if eval "$(pamixer --get-mute)"; then #todo: change pamixer with pulseaudio-control
+		dunstify -a "changevolume" -t 2000 -r 9993 -u low -i "/home/ludwig/.local/share/icons/fontawesome/volume-mute.svg" "Muted"
+	else
+		send_notification up
+	fi
+	;;
+esac

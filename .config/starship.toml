@@ -1,0 +1,73 @@
+# Use custom format
+format = '''
+[┏━](bold bright-yellow) $directory$all
+[┗](bold bright-yellow) $localip$hostname$docker_context$os$character
+'''
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character] # The name of the module we are configuring is "character"
+success_symbol = '[❯](bold bright-green)' # The "success_symbol" segment is being set to "➜" with the color "bold green"
+error_symbol = '[❯](bold red)'
+vimcmd_symbol = '[](bold green) '
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+format = '[$path]($style)[$read_only]($read_only_style) '
+style = 'bold italic cyan'
+read_only = '  '
+read_only_style = 'red'
+truncation_symbol = '…/'
+repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) '
+home_symbol = '~'
+
+[docker_context]
+format = 'via [󰡨 $context](bold italic bright-blue)'
+
+[git_status]
+conflicted = '='
+ahead = '⇡'
+behind = '⇣'
+diverged = '⇕'
+up_to_date = '' #'✓'
+untracked = '?'
+stashed = '$'
+modified = '!'
+staged = '[++\($count\)](green)'
+renamed = '»'
+deleted = '✘'
+
+[hostname]
+ssh_only = true
+format = ' [$ssh_symbol](bold italic blue) on [$hostname](bold italic cyan) '
+trim_at = '.companyname.com'
+disabled = false
+
+[line_break]
+disabled = true
+
+[localip]
+ssh_only = true
+format = '@[$localipv4](bold green)'
+disabled = false
+
+[os]
+format = "[$symbol]($style)"
+style = "bold blue"
+disabled = false
+
+[os.symbols]
+Arch = "󰣇 "
+
+[package]
+disabled = true
+
+[username]
+style_user = 'white bold'
+style_root = 'red bold'
+format = '[$user]($style) '
+disabled = false
+show_always = false

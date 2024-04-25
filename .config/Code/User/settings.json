@@ -1,0 +1,270 @@
+{
+  "editor.fontFamily": "Fira Code",
+  "editor.fontSize": 16,
+  "editor.minimap.enabled": false,
+  "editor.fontLigatures": true,
+  "editor.guides.bracketPairs": true,
+  "editor.guides.bracketPairsHorizontal": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeLens": true,
+  "editor.lineNumbers": "relative",
+  "editor.semanticHighlighting.enabled": "configuredByTheme",
+  //"editor.semanticHighlighting.enabled": false,
+
+  //? Explorer
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+
+  //? Terminal
+  "terminal.integrated.fontFamily": "Hack Nerd Font",
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.localEchoStyle": "dim",
+
+  //? Vim
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": false,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "d"],
+      "after": ["d", "d"]
+    },
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["lineBreakInsert"],
+      "silent": true
+    },
+    //* Doom Emacs Keybinds
+    //? Save file
+    {
+      "before": ["<leader>", "f", "s"],
+      "commands": ["workbench.action.files.save"]
+    },
+    //? Split editor to right
+    {
+      "before": ["<leader>", "w", "v"],
+      "commands": ["workbench.action.splitEditorRight"]
+    },
+    //? Split editor to bottom
+    {
+      "before": ["<leader>", "w", "s"],
+      "commands": ["workbench.action.splitEditorDown"]
+    },
+    //? Close editor
+    {
+      "before": ["<leader>", "w", "c"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    //? Toggle Sidebar
+    {
+      "before": ["<leader>", "o", "p"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    //? Move to next editor focus
+    {
+      "before": ["<leader>", "w", "w"],
+      "commands": ["workbench.action.nextEditor"]
+    }
+  ],
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
+  "window.titleBarStyle": "custom",
+  "window.title": "${dirty}${appName}${separator}${rootName}",
+
+  //? Workbench
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "workbench.iconTheme": "gruvbox-material-icon-theme",
+  "workbench.productIconTheme": "fluent-icons",
+  "workbench.tree.indent": 15,
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.editor.splitSizing": "distribute",
+
+  //? Zenmode
+  "zenMode.hideActivityBar": false,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.hideStatusBar": false,
+  "zenMode.centerLayout": false,
+
+  //! Languages
+
+  //? C#
+  "[csharp]": {
+    "editor.codeLens": false,
+    "editor.defaultFormatter": "ms-dotnettools.csharp",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "editor.semanticHighlighting.enabled": false
+  },
+  //"dotnet.server.useOmnisharp": true,
+  "omnisharp.enableDecompilationSupport": true,
+
+  //? C++
+  /*
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  */
+
+  //? HTML
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  //? JavaScript
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "eslint.enable": true,
+
+  //? PHP
+  /*
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  },
+  */
+
+  //! Exstensions Settings
+
+  //? Code Runner
+  "code-runner.runInTerminal": true,
+
+  //? CodeSnap
+  "codesnap.showWindowControls": true,
+  "codesnap.showWindowTitle": true,
+  "codesnap.containerPadding": "2em",
+
+  //? Live Server
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.AdvanceCustomBrowserCmdLine": "firefox-developer-edition",
+  "files.autoSave": "onFocusChange",
+
+  //? Better Comments
+  "better-comments.multilineComments": true,
+  "better-comments.tags": [
+    {
+      "tag": "!",
+      "color": "#b70131",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    },
+    {
+      "tag": "??",
+      "color": "#52e2fe",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    },
+    {
+      "tag": "?",
+      "color": "#52e2fe",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "*",
+      "color": "#048205",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    },
+    {
+      "tag": "bug",
+      "color": "#ff0613",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    },
+    {
+      "tag": "fixme",
+      "color": "#ff5515",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "//",
+      "color": "#46353f",
+      "strikethrough": true,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "////",
+      "color": "#46353f",
+      "strikethrough": true,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "todo",
+      "color": "#ff6b04",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": true
+    },
+    {
+      "tag": "done",
+      "color": "#739aaf",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "do:",
+      "color": "#fffb03",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    }
+  ],
+  "git.confirmSync": false,
+  "rainbow_csv.enable_separator_autodetection": true,
+  "sqltools.disableNodeDetectNotifications": true,
+  "workbench.editorAssociations": {
+    "*.dll": "default"
+  },
+  "sqltools.useNodeRuntime": true,
+  "github.gitProtocol": "ssh",
+  "window.zoomLevel": 0
+}

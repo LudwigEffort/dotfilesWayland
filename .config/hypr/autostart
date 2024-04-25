@@ -1,0 +1,26 @@
+#!/usr/bin/bash
+
+# Cursor theme
+hyprctl setcursor Bibata-Modern-Ice 24 &
+
+# foot daemon
+foot --server &
+
+# emacs daemon
+emacs --daemon &
+
+# screen lock
+swayidle -w timeout 300 'swaylock -f' timeout 360 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' &
+
+# cliphist
+wl-paste --type text --watch cliphist store &
+wl-paste --type image --watch cliphist store & #Store only image data
+
+# waybar
+waybar -c "$HOME/.config/waybar/config" -s "$HOME/.config/waybar/style.css" &
+
+# wallpaper
+swaybg -i "$HOME/pictures/wallpapers/sushi.jpg" &
+
+# Themes
+./"$HOME/.local/bin/gtkthemes" &

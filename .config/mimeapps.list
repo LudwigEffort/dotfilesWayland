@@ -1,0 +1,8 @@
+
+[Default Applications]
+application/pdf=org.pwmt.zathura.desktop
+image/gif=imv.desktop
+image/jpeg=imv.desktop
+image/jpg=imv.desktop
+image/png=imv.desktop
+x-scheme-handler/jetbrains=jetbrains-toolbox.desktop

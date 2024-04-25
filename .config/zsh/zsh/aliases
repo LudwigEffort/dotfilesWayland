@@ -1,0 +1,42 @@
+#!/bin/sh
+
+##### Aliases
+
+# Software
+alias emacs='emacsclient -t -a ""'
+alias lf='lf-ueberzug'
+
+# Replace "ls" to "exa"
+alias ls='exa -F --color=always --icons --group-directories-first'
+alias la='exa -aF --color=always --icons --group-directories-first'
+alias ll='exa -lF --color=always --icons --group-directories-first'
+alias lla='exa -alF --color=always --icons --group-directories-first'
+alias lt='exa -alFT -I '.git' --color=always --icons --group-directories-first'
+
+# Copy
+alias cp='cp -i'
+alias cpd='cp -r'
+
+# Replace "cat" to "bat"
+alias cat='bat'
+
+# Move
+alias mv='mv -iv'
+
+# Remove
+alias rm='rm -vI --preserve-root'
+alias rmd='rm -r --preserve-root'
+
+# Pacman and Paru
+alias p='sudo pacman'                               # pacman shortcut
+alias pa='paru'                                     # paru shortcut
+alias psyu='sudo pacman -Syu'                       # update standard pkgs
+alias psyyu='sudo pacman -Syyu'                     # refresh pkglist & update standard pkgs
+alias pasua='paru -Sua'                             # update pkgs from AUR
+alias pasyu='paru -Syu'                             # update all pkgs
+alias unlock='sudo rm -i /var/lib/pacman/db.lck'    # remove pacman lock file
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'    # remove orphaned pkgs
+alias pwhere='pacman -Qs'                           # search installed pkgs
+
+alias ips='ip -c addr'
+alias ns='nmcli -p connection'
