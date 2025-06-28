@@ -35,7 +35,7 @@ eval "$(starship init zsh)"
 export PATH="$HOME/.config/emacs/bin:$PATH"
 
 # Vim
-export VIMINIT="source $XDG_CONFIG_HOME/vim/.vimrc"
+#export VIMINIT="source $XDG_CONFIG_HOME/nvim/init.vim"
 
 ### Manpager
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
@@ -45,13 +45,6 @@ export MANPAGER="less -R --use-color -Dd+r -Du+b"
 
 # Adds ~/.local/bin and subfolders to $PATH
 export PATH="$HOME/.local/bin:$PATH"
-
-# XDG Paths
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_STATE_HOME="$HOME/.local/state"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_REPOS_DIR="$HOME/repos"
 
 # USR Paths
 export USR_SHARE="/usr/share"
