@@ -1,0 +1,40 @@
+#!/bin/sh
+
+##### Aliases
+
+### Software
+
+# Replace "ls" to "exa"
+alias ls='exa -F --color=always --icons --group-directories-first' # y
+alias la='exa -aF --color=always --icons --group-directories-first' # y
+alias ll='exa -lHF --group --color=always --icons --group-directories-first' # y
+alias lla='exa -alHF --group --color=always --icons --group-directories-first' # y
+ alias lt='exa -alFT -I '.git' --color=always --icons --group-directories-first' # y
+
+# Copy
+alias cp='cp -iv' # y
+alias cpd='cp -r' # y
+
+# Replace "cat" to "bat"
+alias cat='bat' # y
+
+# Move
+alias mv='mv -iv' # y
+
+# Remove
+alias rm='rm -vI --preserve-root' # y
+alias rmd='rm -r --preserve-root' # y
+
+# Pacman and Paru
+alias p='sudo pacman'                               # pacman shortcut
+alias pa='paru'                                     # paru shortcut
+alias psyu='sudo pacman -Syu'                       # update standard pkgs
+alias psyyu='sudo pacman -Syyu'                     # refresh pkglist & update standard pkgs
+alias pasua='paru -Sua'                             # update pkgs from AUR
+alias pasyu='paru -Syu'                             # update all pkgs
+alias unlock='sudo rm -i /var/lib/pacman/db.lck'    # remove pacman lock file
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'    # remove orphaned pkgs
+alias pwhere='pacman -Qs'                           # search installed pkgs
+
+# Hyprland 
+alias wkill='hyprctl kill' # y

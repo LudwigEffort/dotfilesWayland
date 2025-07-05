@@ -17,6 +17,7 @@ configuration {
  display-window: "Windows:";
  display-emoji: " :";
  display-calc: " :";
+ lazy-grab: false;
  show-icons: true;
  icon-theme: "Gruvbox-Plus-Dark";
  drun-display-format: "{name}";

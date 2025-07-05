@@ -11,80 +11,59 @@
 
 ########## General Settings ##########
 
-#zmodload zsh/zprof zsh log
+zmodload zsh/zprof
 
 # Lines configured by zsh-newuser-install
-HISTFILE="${XDG_CONFIG_HOME}/zsh/.histfile"
 HISTSIZE=10000
 SAVEHIST=10000
+HISTFILE="${XDG_CACHE_HOME}/zsh/histfile"
 
-setopt globdots
-
-#autoload -Uz compinit
-#compinit -C
-
-# Directory color scheme ?
-test -r ~/.dir_colors/dir_colors && eval $(dircolors ~/.dir_colors/dir_colors)
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)
 
 ##### Alias
+#[ -f "${XDG_CONFIG_HOME}/zsh/aliases" ] && source "${XDG_CONFIG_HOME}/zsh/aliases-old"
 [ -f "${XDG_CONFIG_HOME}/zsh/aliases" ] && source "${XDG_CONFIG_HOME}/zsh/aliases"
 
 ########## Plugins & Scripts ##########
 
 # From repository
-[ -f "${USR_SHARE}/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh" ] && source "${USR_SHARE}/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
 [ -f "${USR_SHARE}/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && source "${USR_SHARE}/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 [ -f "${USR_SHARE}/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && source "${USR_SHARE}/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 [ -f "${USR_SHARE}/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh" ] && source "${USR_SHARE}/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh"
 
+# From AUR
+[ -f "${USR_SHARE}/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh" ] && source "${USR_SHARE}/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh"
+
 # From github
-[ -f "${XDG_CONFIG_HOME}/zsh/plugins/lib/functions.zsh" ] && source "${XDG_CONFIG_HOME}/zsh/plugins/lib/functions.zsh"
-[ -f "${XDG_CONFIG_HOME}/zsh/plugins/urlencode.zsh" ] && source "${XDG_CONFIG_HOME}/zsh/plugins/urlencode.zsh"
-[ -f "${XDG_CONFIG_HOME}/zsh/plugins/web-search.plugin.zsh" ] && source "${XDG_CONFIG_HOME}/zsh/plugins/web-search.plugin.zsh"
-[ -f "${XDG_CONFIG_HOME}/zsh/plugins/dirhistory.plugin.zsh" ] && source "${XDG_CONFIG_HOME}/zsh/plugins/dirhistory.plugin.zsh"
 
 # Scripts
 [ -f "${XDG_CONFIG_HOME}/zsh/plugins/ssh_agent.zsh" ] && source "${XDG_CONFIG_HOME}/zsh/plugins/ssh_agent.zsh"
 
 ########## Keybindings ##########
 
-### Emacs Binding Keys
-bindkey -e
+# Vim Binding Keys
+bindkey -v
+export KEYTIMEOUT=1
 
-### Bind arrow keys
-#bindkey '^[[A' history-substring-search-up
-#bindkey '^[[B' history-substring-search-down
+# Vim Keys in tab complete menu
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
 
-bindkey '^I' autosuggest-accept  # ^I è il codice per TAB
+# Keybings from Emacs
+bindkey '^A' beginning-of-line
+bindkey '^P' history-beginning-search-backward
+bindkey '^E' end-of-line
+bindkey '^N' history-beginning-search-forward
 
-### Autocomplete
-#zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
-#zstyle ':autocomplete:*history*:*' insert-unambiguous yes
-#zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
+# Arrow Keybindings
+bindkey '^[[A' history-beginning-search-backward
+bindkey '^[[B' history-beginning-search-forward
 
-zstyle ':autocomplete:*' min-delay 1
-zstyle ':autocomplete:*' min-input 4
-zstyle ':autocomplete:*' max-lines 10
-zstyle ':autocomplete:*' automatic-insert off
-
-zstyle ':autocomplete:*' ignored-input '^pacman.*'
-
-zstyle ':completion:*' rehash true
-
-bindkey              '^I' menu-select
-bindkey "$terminfo[kcbt]" menu-select
-
-bindkey -M menuselect '^M' .accept-line  
-bindkey -M menuselect              '^I'         menu-complete
-bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
-
-#bindkey -M menuselect  '^[[D' .backward-char  '^[OD' .backward-char
-#bindkey -M menuselect  '^[[C'  .forward-char  '^[OC'  .forward-char
-
-### Bind vim keys (in conflict with vterm from emacs)
-#bindkey '^j' history-substring-search-up
-#bindkey '^k' history-substring-search-down
-
-#zprof > ~/zprof_log_now.txt # zsh log
-
-#compdef -d pacman
+zprof > ~/.cache/zsh/log/zprof_log_now.txt # zsh log

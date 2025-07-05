@@ -11,10 +11,21 @@ export XCURSOR_SIZE=24
 export TERMINAL="foot"
 export EDITOR="nvim"
 export VISUAL="nvim"
-export BROWSER="firefox"
+export BROWSER="brave"
 export VIDEO="mpv"
 export IMAGE="nsxiv"
 
 # Driver video
 
 export LIBVA_DRIVER_NAME=iHD
+
+# Backend 
+export QT_QPA_PLATFORM=wayland
+export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1 
+export GDK_BACKEND=wayland
+export SDL_VIDEODRIVER=wayland
+export CLUTTER_BACKEND=wayland
+export MOZ_ENABLE_WAYLAND=1
+export WAYLAND_DISPLAY=wayland-1
+#export ELECTRON_OZONE_PLATFORM_HINT=wayland

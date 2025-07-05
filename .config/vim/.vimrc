@@ -1,74 +1,24 @@
-"==============================================="
-"                                               "
-"    ██╗   ██╗██╗███╗   ███╗██████╗  ██████╗    "
-"    ██║   ██║██║████╗ ████║██╔══██╗██╔════╝    "
-"    ██║   ██║██║██╔████╔██║██████╔╝██║         "
-"    ╚██╗ ██╔╝██║██║╚██╔╝██║██╔══██╗██║         "
-"     ╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗    "
-"      ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝    "
-"                                               "
-"==============================================="
 
-"reference: https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor"
+set viminfofile=~/.config/vim/viminfo
 
-set guicursor=a:block
+" Mostra la numerazione delle righe
+set number
 
-set nocompatible
-
-filetype on
-
-filetype plugin on
-
-filetype indent on
-
+" Attiva la colorazione della sintassi
 syntax on
 
-set number relativenumber
+" Abilita indentazione automatica e intelligente
+set autoindent
+filetype indent on
 
-set tabstop=4
-
-set expandtab
-
-set nobackup
-
-set scrolloff=10
-
-set nowrap
-
-set incsearch
-
+" Ricerca senza distinzione tra maiuscole/minuscole
 set ignorecase
 
-set smartcase
-
-set showcmd
-
-set showmode
-
-set showmatch
-
+" Evidenzia le corrispondenze durante la ricerca
 set hlsearch
 
-set history=1000
+" Vai a capo automatico delle righe lunghe
+set linebreak
 
-set wildmenu
-
-set wildmode=list:longest
-
-set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
-
-"nnoremap <C-@> :call system("wl-copy", @")<CR>
-
-"PLUGINS ----------------------------------------------------------------"
-
-"call plug#begin('~/.vim/plugged')
-"  Plug 'dense-analysis/ale'
-"  Plug 'preservim/nerdtree'
-"  Plug 'morhetz/gruvbox'
-"call plug#end()
-
-
-"set background=dark
-"colorscheme gruvbox
-
-set guifont=Monospace\ Regular\ 12
+" Tema colori leggibile (opzionale, scegli quello che preferisci)
+colorscheme desert

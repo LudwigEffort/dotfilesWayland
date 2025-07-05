@@ -1,44 +1,60 @@
 #!/bin/sh
 
-##### Aliases
-
-# Software
-alias emacs='emacsclient -t -a ""'
-#alias lf='lf-ueberzug'
-
-# Replace "ls" to "exa"
-alias ls='exa -F --color=always --icons --group-directories-first'
-alias la='exa -aF --color=always --icons --group-directories-first'
-alias ll='exa -lHF --group --color=always --icons --group-directories-first'
-alias lla='exa -alHF --group --color=always --icons --group-directories-first'
-alias lt='exa -alFT -I '.git' --color=always --icons --group-directories-first'
+### Main Commands ###
 
 # Copy
-alias cp='cp -i'
-alias cpd='cp -r'
+alias cp='cp -iv'
+alias cpd='cp -ivr'
 
-# Replace "cat" to "bat"
-alias cat='bat'
+# Grep
+alias grep='grep --color=auto'
+
+# Make dir
+alias mkdir='mkdir -pv'
 
 # Move
 alias mv='mv -iv'
 
 # Remove
 alias rm='rm -vI --preserve-root'
-alias rmd='rm -r --preserve-root'
+alias rmd='rm -vIr --preserve-root'
 
-# Pacman and Paru
-alias p='sudo pacman'                               # pacman shortcut
-alias pa='paru'                                     # paru shortcut
-alias psyu='sudo pacman -Syu'                       # update standard pkgs
-alias psyyu='sudo pacman -Syyu'                     # refresh pkglist & update standard pkgs
-alias pasua='paru -Sua'                             # update pkgs from AUR
-alias pasyu='paru -Syu'                             # update all pkgs
-alias unlock='sudo rm -i /var/lib/pacman/db.lck'    # remove pacman lock file
-alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'    # remove orphaned pkgs
-alias pwhere='pacman -Qs'                           # search installed pkgs
+### Replace Commands ###
 
-alias ips='ip -c addr'
-alias ns='nmcli -p connection'
+# Replace "cat" to "bat"
+alias cat='bat'
 
+# Replace "ls" to "exa"
+alias ls='eza -F --color=always --icons --group-directories-first'
+alias la='eza -aF --color=always --icons --group-directories-first'
+alias ll='eza -lHF --color=always --icons --group-directories-first'
+alias lla='eza -alHF --color=always --icons --group-directories-first'
+alias lt='eza -aT --color=always --icons --group-directories-first -L=1'
+
+### Software ###
+
+# Applications
+alias v="$EDITOR"
+
+# Git
+
+# Hyprland 
 alias wkill='hyprctl kill'
+
+# Pacman
+alias p='pacman'                               # pacman shortcut
+alias pinstall='pacman -S'                     # pacman install pkgs
+alias psyyu='pacman -Syyu'                     # refresh pkglist & update standard pkgs
+alias punlock='rm -i /var/lib/pacman/db.lck'   # remove pacman lock file
+alias porphan='pacman -Rns $(pacman -Qtdq)'    # remove orphaned pkgs
+alias pwhere='pacman -Qs'                      # search installed pkgs
+
+# Paru
+alias pa='paru'                                # paru shortcut
+alias pasua='paru -Sua'                        # update pkgs from AUR
+alias update='paru -Syu'                       # update all pkgs
+
+# Systemd
+alias rfoot='systemctl --user restart foot-server.service'
+alias remacs='systemctl --user restart emacs.service'
+

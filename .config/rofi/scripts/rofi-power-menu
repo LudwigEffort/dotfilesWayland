@@ -38,7 +38,9 @@ icons[shutdown]="\Uf011"
 icons[cancel]="\Uf00d"
 
 declare -A actions
-actions[lockscreen]="swaylock -f"
+#actions[lockscreen]="swaylock -f"
+#actions[lockscreen]="hyprlock -q"
+actions[lockscreen]="lockscreen.sh"
 #actions[switchuser]="???"
 actions[logout]="loginctl terminate-session ${XDG_SESSION_ID-}"
 actions[suspend]="systemctl suspend"
